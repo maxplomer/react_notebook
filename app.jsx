@@ -1,8 +1,13 @@
 var Page = React.createClass({
   getInitialState: function() {
-    return {message: ''};
+    var message = localStorage.getItem( 'message' ) || '';
+
+    return {
+      message: message
+    };
   },
   handleChange: function(event) {
+    localStorage.setItem( 'message', event.target.value );
     this.setState({message: event.target.value});
   },
   render: function() {
