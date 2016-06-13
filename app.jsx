@@ -10,6 +10,19 @@ var Page = React.createClass({
     localStorage.setItem( 'message', event.target.value );
     this.setState({message: event.target.value});
   },
+
+  _onUnload() {
+    localStorage.setItem( 'message', '' );
+  },
+
+  componentDidMount: function() {
+    window.addEventListener("beforeunload", this._onUnload);
+  },
+
+  componentWillUnmount: function() {
+    window.removeEventListener("beforeunload", this._onUnload);
+  },
+
   render: function() {
     return (
       <div>
