@@ -1,7 +1,16 @@
 var Page = React.createClass({
+  getInitialState: function() {
+    return {message: ''};
+  },
+  handleChange: function(event) {
+    this.setState({message: event.target.value});
+  },
   render: function() {
     return (
-      <textarea placeholder={this.props.placeholder}/>
+      <div>
+        <textarea placeholder={this.props.placeholder} value={this.state.message}  onChange={this.handleChange}/>
+        <textarea value={this.state.message}/>
+      </div>
     );
   }
 });
