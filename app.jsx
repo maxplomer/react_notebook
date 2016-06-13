@@ -1,3 +1,14 @@
+var Page = React.createClass({
+  render: function() {
+    return (
+      <textarea placeholder={this.props.placeholder}/>
+    );
+  }
+});
+
+
+
+
 var IeInput = React.createClass({
   getInitialState: function() {
     return {
@@ -79,4 +90,4 @@ var IeInput = React.createClass({
   }
 });
 
-React.render(<IeInput placeholder="username"/>, document.body);
+React.render(<Page placeholder="Enter page text"/>, document.body);
