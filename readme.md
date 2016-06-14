@@ -4,17 +4,17 @@ Create a single-page web app of an online notebook using HTML/JavaScript. You ca
  
 Here are the requirements:
  
-1.       The notebook has a maximum of 5 pages, all blank to start.
+1.  The notebook has a maximum of 5 pages, all blank to start.
 
-2.       The web app should start on page 1.
+2.  The web app should start on page 1.
 
-3.       You need to provide the ability to turn pages.
+3.  You need to provide the ability to turn pages.
 
-4.       The user should be able to enter text into any page.
+4.  The user should be able to enter text into any page.
 
-5.       As the user enters text, that text should be saved to that it persists through a page refresh.
+5.  As the user enters text, that text should be saved to that it persists through a page refresh.
 
-6.       The notebook should start blank again if there is a new browser instance.
+6.  The notebook should start blank again if there is a new browser instance.
 
 
 # Implementation
