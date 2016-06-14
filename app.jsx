@@ -2,7 +2,10 @@ var Pages = React.createClass({
   getInitialState: function() {
     var myState;
 
-    if (document.cookie == '') {
+    var storedData = localStorage.getItem( 'data' );
+    console.log(storedData);
+
+    if (storedData == null) {
       myState = {
         currentMessage: '',
         message1: '',
@@ -13,7 +16,7 @@ var Pages = React.createClass({
         currentPage: 1
       };
     } else  {
-      myState = JSON.parse(document.cookie);
+      myState = JSON.parse(storedData);
     }
 
     return myState;
@@ -77,7 +80,7 @@ var Pages = React.createClass({
   },
 
   componentDidUpdate: function() {
-    document.cookie = JSON.stringify(this.state);
+    localStorage.setItem( 'data', JSON.stringify(this.state) );
   },
 
   render: function() {
