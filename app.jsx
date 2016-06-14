@@ -31,6 +31,20 @@ var Pages = React.createClass({
     }
   },
 
+  previousPage: function() {
+    this.updatePageNumber(this.state.currentPage - 1)
+  },
+
+  nextPage: function() {
+    this.updatePageNumber(this.state.currentPage + 1)
+  },
+
+  updatePageNumber: function(pageNumber) {
+    if (pageNumber >= 1 && pageNumber <= 5) {
+      this.setState({currentPage: pageNumber});
+    }
+  },
+
   componentDidUpdate: function() {
     document.cookie = JSON.stringify(this.state);
   },
@@ -50,7 +64,8 @@ var Pages = React.createClass({
         <br/>
         <span>Page Number: {this.state.currentPage}</span>
         <br/>
-        <a href="#">prev</a> &nbsp;&nbsp;&nbsp; <a href="#">next</a>
+        <button onClick={this.previousPage}>prev</button> &nbsp;&nbsp;&nbsp; 
+        <button onClick={this.nextPage}>next</button>
       </div>
     );
   }
