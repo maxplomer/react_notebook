@@ -3,7 +3,7 @@ var Pages = React.createClass({
     var myState;
 
     if (document.cookie == '') {
-      myState = {message1: '', message2: '', message3: '', message4: '', message5: '', currentPage: 1};
+      myState = {currentMessage: '', message1: '', message2: '', message3: '', message4: '', message5: '', currentPage: 1};
     } else  {
       myState = JSON.parse(document.cookie);
     }
@@ -11,8 +11,11 @@ var Pages = React.createClass({
     return myState;
   },
 
-  handleChange: function(page_index, event) {
-    switch(page_index) {
+  handleChange: function(event) {
+    this.setState({currentMessage: event.target.value});
+
+    //dry this up with key = "message" + this.state.currentPage
+    switch(this.state.currentPage) {
       case 1:
         this.setState({message1: event.target.value});
         break;
@@ -32,16 +35,37 @@ var Pages = React.createClass({
   },
 
   previousPage: function() {
-    this.updatePageNumber(this.state.currentPage - 1)
+    this.updatePageNumber(this.state.currentPage - 1);
   },
 
   nextPage: function() {
-    this.updatePageNumber(this.state.currentPage + 1)
+    this.updatePageNumber(this.state.currentPage + 1);
   },
 
   updatePageNumber: function(pageNumber) {
     if (pageNumber >= 1 && pageNumber <= 5) {
       this.setState({currentPage: pageNumber});
+    }
+    this.updateCurrentMessage(pageNumber)
+  },
+
+  updateCurrentMessage: function(pageNumber) {
+    switch(pageNumber) {
+      case 1:
+        this.setState({currentMessage: this.state.message1});
+        break;
+      case 2:
+        this.setState({currentMessage: this.state.message2});
+        break;
+      case 3:
+        this.setState({currentMessage: this.state.message3});
+        break;
+      case 4:
+        this.setState({currentMessage: this.state.message4});
+        break;
+      case 5:
+        this.setState({currentMessage: this.state.message5});
+        break;
     }
   },
 
@@ -52,17 +76,12 @@ var Pages = React.createClass({
   render: function() {
     return (
       <div>
-        <textarea placeholder={this.props.placeholder} value={this.state.message1} onChange={this.handleChange.bind(this, 1)}/>
+        <textarea placeholder={this.props.placeholder} value={this.state.currentMessage} onChange={this.handleChange}/>
+
         <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message2} onChange={this.handleChange.bind(this, 2)}/>
-        <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message3} onChange={this.handleChange.bind(this, 3)}/>
-        <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message4} onChange={this.handleChange.bind(this, 4)}/>
-        <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message5} onChange={this.handleChange.bind(this, 5)}/>
-        <br/>
+
         <span>Page Number: {this.state.currentPage}</span>
+        
         <br/>
         <button onClick={this.previousPage}>prev</button> &nbsp;&nbsp;&nbsp; 
         <button onClick={this.nextPage}>next</button>
