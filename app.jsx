@@ -82,7 +82,7 @@ var Pages = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="pages-holder">
         <textarea placeholder={this.props.placeholder} value={this.state.currentMessage} onChange={this.handleChange}/>
         <br/>
 

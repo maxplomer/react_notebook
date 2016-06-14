@@ -7,8 +7,14 @@
     <script src="app.jsx" type="text/babel"></script>
     <title>React Notebook</title>
     <style>
+      html, body, .pages-holder {
+        height: 100%;
+      }
+
       textarea {
+        height: calc(100% - 100px);
         padding: 5px;
+        resize: none;
         width: calc(100% - 10px);
       }
     </style>
