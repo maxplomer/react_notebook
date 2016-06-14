@@ -7,13 +7,12 @@ var Page = React.createClass({
     } else  {
       myState = JSON.parse(document.cookie);
     }
-    
+
     return myState;
   },
+  
   handleChange: function(event) {
-    //document.cookie = event.target.value;
     this.setState({message: event.target.value});
-    //document.cookie = JSON.stringify(this.state);
   },
 
   componentDidUpdate: function() {
