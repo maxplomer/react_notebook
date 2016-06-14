@@ -1,10 +1,14 @@
 var Page = React.createClass({
   getInitialState: function() {
-    var message = document.cookie || '';
+    var myState;
 
-    return {
-      message: message
-    };
+    if (document.cookie == '') {
+      myState = {message: ''}
+    } else  {
+      myState = JSON.parse(document.cookie);
+    }
+    
+    return myState;
   },
   handleChange: function(event) {
     //document.cookie = event.target.value;
