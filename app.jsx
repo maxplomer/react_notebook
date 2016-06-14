@@ -8,7 +8,6 @@ var Page = React.createClass({
   },
   handleChange: function(event) {
     document.cookie = event.target.value;
-    //localStorage.setItem( 'message', event.target.value );
     this.setState({message: event.target.value});
   },
 
