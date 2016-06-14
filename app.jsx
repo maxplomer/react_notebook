@@ -2,7 +2,7 @@ var Pages = React.createClass({
   getInitialState: function() {
     var myState;
 
-    var storedData = localStorage.getItem( 'data' );
+    var storedData = sessionStorage.getItem( 'data' );
     console.log(storedData);
 
     if (storedData == null) {
@@ -80,7 +80,7 @@ var Pages = React.createClass({
   },
 
   componentDidUpdate: function() {
-    localStorage.setItem( 'data', JSON.stringify(this.state) );
+    sessionStorage.setItem( 'data', JSON.stringify(this.state) );
   },
 
   render: function() {
