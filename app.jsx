@@ -1,23 +1,14 @@
-var Pages = React.createClass({
+var Page = React.createClass({
   getInitialState: function() {
-    console.log(document.cookie)
-    //console.log(JSON.stringify([1, 2]))
-    //var message = document.cookie || '';
-
-    //cookie_data = JSON.parse(document.cookie);
-    //console.log(cookie_data);
-
-    //var state = cookie_data || {message: ''};
-    var message = '';
+    var message = document.cookie || '';
 
     return {
       message: message
     };
   },
   handleChange: function(event) {
-    //document.cookie = event.target.value;
+    document.cookie = event.target.value;
     this.setState({message: event.target.value});
-    document.cookie = JSON.stringify(this.state);
   },
 
   render: function() {
@@ -114,4 +105,4 @@ var IeInput = React.createClass({
   }
 });
 
-React.render(<Pages placeholder="Enter page text"/>, document.body);
+React.render(<Page placeholder="Enter page text"/>, document.body);
