@@ -7,8 +7,13 @@ var Page = React.createClass({
     };
   },
   handleChange: function(event) {
-    document.cookie = event.target.value;
+    //document.cookie = event.target.value;
     this.setState({message: event.target.value});
+    //document.cookie = JSON.stringify(this.state);
+  },
+
+  componentDidUpdate: function() {
+    document.cookie = JSON.stringify(this.state);
   },
 
   render: function() {
