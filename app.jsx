@@ -1,15 +1,17 @@
 var Page = React.createClass({
   getInitialState: function() {
-    var message = localStorage.getItem( 'message' ) || '';
+    var message = document.cookie || '';
 
     return {
       message: message
     };
   },
   handleChange: function(event) {
-    localStorage.setItem( 'message', event.target.value );
+    document.cookie = event.target.value;
+    //localStorage.setItem( 'message', event.target.value );
     this.setState({message: event.target.value});
   },
+
   render: function() {
     return (
       <div>
