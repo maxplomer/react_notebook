@@ -19,7 +19,7 @@ Here are the requirements:
 
 # Implementation
 
-This solution uses a single react component that saves the state to a javascript cookie.
+This solution uses a single React.js component which saves it's state to a javascript cookie.
 
 
 # Install/Running
