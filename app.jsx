@@ -85,13 +85,14 @@ var Pages = React.createClass({
     return (
       <div className="page-holder">
         <textarea placeholder={this.props.placeholder} value={this.state.currentMessage} onChange={this.handleChange}/>
-        <br/>
 
-        Page Number: {this.state.currentPage}
-        <br/>
+        <div className="page-number-holder">
+          Page Number: {this.state.currentPage}
+          <br/>
 
-        <button onClick={this.previousPage}>prev</button> &nbsp;&nbsp;&nbsp; 
-        <button onClick={this.nextPage}>next</button>
+          <button onClick={this.previousPage}>prev</button> &nbsp;&nbsp;&nbsp; 
+          <button onClick={this.nextPage}>next</button>
+        </div>
       </div>
     );
   }
