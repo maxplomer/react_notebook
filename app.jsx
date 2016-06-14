@@ -52,8 +52,8 @@ var Pages = React.createClass({
   updatePageNumber: function(pageNumber) {
     if (pageNumber >= 1 && pageNumber <= 5) {
       this.setState({currentPage: pageNumber});
+      this.updateCurrentMessage(pageNumber);
     }
-    this.updateCurrentMessage(pageNumber)
   },
 
   updateCurrentMessage: function(pageNumber) {
