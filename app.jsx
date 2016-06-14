@@ -3,7 +3,15 @@ var Pages = React.createClass({
     var myState;
 
     if (document.cookie == '') {
-      myState = {currentMessage: '', message1: '', message2: '', message3: '', message4: '', message5: '', currentPage: 1};
+      myState = {
+        currentMessage: '',
+        message1: '',
+        message2: '',
+        message3: '', 
+        message4: '',
+        message5: '',
+        currentPage: 1
+      };
     } else  {
       myState = JSON.parse(document.cookie);
     }
