@@ -14,7 +14,6 @@ var Pages = React.createClass({
   handleChange: function(event) {
     this.setState({currentMessage: event.target.value});
 
-    //dry this up with key = "message" + this.state.currentPage
     switch(this.state.currentPage) {
       case 1:
         this.setState({message1: event.target.value});
