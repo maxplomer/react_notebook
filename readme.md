@@ -1,6 +1,6 @@
 # Install/Running
 
-If you are running chrome you will need to run from a static webserver, or else will get cross domain error.
+If you are running in chrome you will need to run from a static webserver, or else will get cross domain error.
 
 
 Install server with:
