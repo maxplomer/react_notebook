@@ -1,9 +1,7 @@
 var Pages = React.createClass({
   getInitialState: function() {
     var myState;
-
     var storedData = sessionStorage.getItem( 'data' );
-    console.log(storedData);
 
     if (storedData == null) {
       myState = {
