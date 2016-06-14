@@ -11,24 +11,24 @@ var Pages = React.createClass({
     return myState;
   },
 
-  handleChange1: function(event) {
-    this.setState({message1: event.target.value});
-  },
-
-  handleChange2: function(event) {
-    this.setState({message2: event.target.value});
-  },
-
-  handleChange3: function(event) {
-    this.setState({message3: event.target.value});
-  },
-
-  handleChange4: function(event) {
-    this.setState({message4: event.target.value});
-  },
-
-  handleChange5: function(event) {
-    this.setState({message5: event.target.value});
+  handleChange: function(page_index, event) {
+    switch(page_index) {
+      case 1:
+        this.setState({message1: event.target.value});
+        break;
+      case 2:
+        this.setState({message2: event.target.value});
+        break;
+      case 3:
+        this.setState({message3: event.target.value});
+        break;
+      case 4:
+        this.setState({message4: event.target.value});
+        break;
+      case 5:
+        this.setState({message5: event.target.value});
+        break;
+    }
   },
 
   componentDidUpdate: function() {
@@ -38,15 +38,15 @@ var Pages = React.createClass({
   render: function() {
     return (
       <div>
-        <textarea placeholder={this.props.placeholder} value={this.state.message1} onChange={this.handleChange1}/>
+        <textarea placeholder={this.props.placeholder} value={this.state.message1} onChange={this.handleChange.bind(this, 1)}/>
         <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message2} onChange={this.handleChange2}/>
+        <textarea placeholder={this.props.placeholder} value={this.state.message2} onChange={this.handleChange.bind(this, 2)}/>
         <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message3} onChange={this.handleChange3}/>
+        <textarea placeholder={this.props.placeholder} value={this.state.message3} onChange={this.handleChange.bind(this, 3)}/>
         <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message4} onChange={this.handleChange4}/>
+        <textarea placeholder={this.props.placeholder} value={this.state.message4} onChange={this.handleChange.bind(this, 4)}/>
         <br/>
-        <textarea placeholder={this.props.placeholder} value={this.state.message5} onChange={this.handleChange5}/>
+        <textarea placeholder={this.props.placeholder} value={this.state.message5} onChange={this.handleChange.bind(this, 5)}/>
         <br/>
       </div>
     );
