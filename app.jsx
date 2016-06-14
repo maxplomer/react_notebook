@@ -3,7 +3,7 @@ var Pages = React.createClass({
     var myState;
 
     if (document.cookie == '') {
-      myState = {message1: '', message2: '', message3: '', message4: '', message5: ''};
+      myState = {message1: '', message2: '', message3: '', message4: '', message5: '', currentPage: 1};
     } else  {
       myState = JSON.parse(document.cookie);
     }
@@ -48,6 +48,9 @@ var Pages = React.createClass({
         <br/>
         <textarea placeholder={this.props.placeholder} value={this.state.message5} onChange={this.handleChange.bind(this, 5)}/>
         <br/>
+        <span>Page Number: {this.state.currentPage}</span>
+        <br/>
+        <a href="#">prev</a> &nbsp;&nbsp;&nbsp; <a href="#">next</a>
       </div>
     );
   }
