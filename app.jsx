@@ -6,11 +6,7 @@ var Pages = React.createClass({
     if (storedData == null) {
       myState = {
         currentMessage: '',
-        message1: '',
-        message2: '',
-        message3: '', 
-        message4: '',
-        message5: '',
+        messages: ['', '', '', '', ''],
         currentPage: 1
       };
     } else  {
@@ -23,23 +19,9 @@ var Pages = React.createClass({
   handleChange: function(event) {
     this.setState({currentMessage: event.target.value});
 
-    switch(this.state.currentPage) {
-      case 1:
-        this.setState({message1: event.target.value});
-        break;
-      case 2:
-        this.setState({message2: event.target.value});
-        break;
-      case 3:
-        this.setState({message3: event.target.value});
-        break;
-      case 4:
-        this.setState({message4: event.target.value});
-        break;
-      case 5:
-        this.setState({message5: event.target.value});
-        break;
-    }
+    var messages = this.state.messages;
+    messages[this.state.currentPage] = event.target.value;
+    this.setState({messages: messages});
   },
 
   previousPage: function() {
