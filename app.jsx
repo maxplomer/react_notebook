@@ -40,7 +40,7 @@ var Pages = React.createClass({
   },
 
   updateCurrentMessage: function(pageNumber) {
-    var message = eval("this.state.message" + pageNumber);
+    var message = this.state.messages[pageNumber];
     this.setState({currentMessage: message});
   },
 
