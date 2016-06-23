@@ -58,23 +58,8 @@ var Pages = React.createClass({
   },
 
   updateCurrentMessage: function(pageNumber) {
-    switch(pageNumber) {
-      case 1:
-        this.setState({currentMessage: this.state.message1});
-        break;
-      case 2:
-        this.setState({currentMessage: this.state.message2});
-        break;
-      case 3:
-        this.setState({currentMessage: this.state.message3});
-        break;
-      case 4:
-        this.setState({currentMessage: this.state.message4});
-        break;
-      case 5:
-        this.setState({currentMessage: this.state.message5});
-        break;
-    }
+    var message = eval("this.state.message" + pageNumber);
+    this.setState({currentMessage: message});
   },
 
   componentDidUpdate: function() {
